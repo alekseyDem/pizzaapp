@@ -5,10 +5,10 @@ import {Badge, Result, Button} from 'antd';
 import { Layout, Menu } from 'antd';
 import ShoppingCartOutlined from "@ant-design/icons/lib/icons/ShoppingCartOutlined";
 import {
-    BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    Link,
+    HashRouter
 } from "react-router-dom";
 import {connect} from "react-redux";
 import {CartContainer} from "./pages/cart";
@@ -18,9 +18,9 @@ const {Header} = Layout;
 
 function App({isAuth = true, addItemToCart, removeItemFromCart, shoppingCartItems}) {
   return (
-      <Layout>
-          <Router>
-              <Header>
+      <HashRouter basename="/">
+        <Layout>
+            <Header>
                 <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
                     <Menu.Item key="1"><Link to="/">Menu</Link></Menu.Item>
                     <Menu.Item key="2"><Link to="/ordershistory">Orders history</Link></Menu.Item>
@@ -53,9 +53,9 @@ function App({isAuth = true, addItemToCart, removeItemFromCart, shoppingCartItem
                         />
                     </Route>
                 </Switch>
-              </Layout>
-          </Router>
-      </Layout>
+            </Layout>
+        </Layout>
+      </HashRouter>
   );
 }
 

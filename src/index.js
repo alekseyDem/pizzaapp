@@ -23,7 +23,7 @@ export function configureStore() {
     sagaMiddleware.run(rootSaga);
     return store
 }
-const store = configureStore()
+const store = configureStore();
 ReactDOM.render(
     <Provider store={store}>
       <React.StrictMode>
